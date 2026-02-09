@@ -1,0 +1,18 @@
+<% /* Button template for pelcod/pelcod-web cameras */ %>
+<% buttons.group1.forEach(function(button) { %>
+    <% if (button === 'blank') { %>
+        <div id="button" class="blank"><img src="<%= imgDir %><%= buttonpics.blank %>"></div>
+    <% } else if (button === 'toggle') { %>
+        <div id="toggle<%= id %>" class="toggle"><img src="<%= imgDir %><%= buttonpics.toggle %>" title="extra functions"></div>
+    <% } else if (button === 'refresh') { %>
+        <div class="refresh"><img onclick="reloadImage(<%= id %>, '<%= url %>');" src="<%= imgDir %><%= buttonpics.refresh %>" title="refresh camera"></div>
+    <% } else if (button === 'fullscreen') { %>
+        <div id="button" class="fscreen<%= id %>" onclick="fsCam(<%= id %>);"><img src="<%= imgDir %><%= buttonpics.fullscreen %>" title="fullscreen"></div>
+    <% } else { %>
+        <div id="button" class="<%= button %><%= id %>"><img src="<%= imgDir %><%= buttonpics[button] %>" title="<%= button %>"></div>
+    <% } %>
+<% }); %>
+<% /* Preset buttons */ %>
+<% for (var i = 1; i <= presets; i++) { %>
+    <div id="button" class="getpreset"><img onclick="sendControlData({'cam':<%= id %>,'command':'getpreset<%= i %>'})" src="<%= imgDir %><%= buttonpics['getpreset' + i] %>" title="Call Preset <%= i %>"></div>
+<% } %>

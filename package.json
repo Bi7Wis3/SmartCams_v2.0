@@ -1,0 +1,21 @@
+{
+  "name": "smartcamsserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "bin": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+	"print-tree": "npx tree-node-cli -I \"node_modules|.git\" -a --dirs-first > structure.txt"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.0.0",
+    "express-session": "^1.18.2",
+    "socket.io": "^4.8.3"
+  }
+}

@@ -1,0 +1,37 @@
+<% /* Camera block template - renders a single camera */ %>
+<div id="blok<%= id %>" class="blok round" style="top:<%= top %>%; left:<%= left %>%;<% if (type !== 'pelcod') { %> height:<%= height + 18 %>px;<% } %>">
+    <div id="picture<%= id %>" class="stream" onclick="fsCam(<%= id %>);">
+        <% if (type === 'pelcod') { %>
+            <img id="vlc<%= id %>" src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>" width="<%= width %>" height="<%= height %>" style="z-index:-1;">
+        <% }
+        else if (type === 'pelcod-web') { %>
+            <img id="cams<%= id %>" name="webcam" src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>">
+        <% }
+        else if (type === 'esp32cam') { %>
+            <img id="cams<%= id %>" name="esp32cam" src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>">
+        <% }
+        else if (type === 'web') { %>
+            <img id="cams<%= id %>" name="webcam" src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>" width="<%= width %>" height="<%= height %>">
+        <% }
+        else if (type === 'web2') { %>
+            <img name="webcam" src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>" width="<%= width %>" height="<%= height %>">
+        <% }
+        else if (type === 'mpegstream') { %>
+            <video name="webcam" controls="controls" autobuffer width="<%= width %>" height="<%= height %>">
+                <source src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>" type="video/h264;">
+            </video>
+        <% }
+        else if (type === 'testweb') { %>
+            <img id="cams<%= id %>" name="webcam" src="http://<%= ip %><%= url || '' %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %>">
+        <% } %>
+    </div>
+    <div id="buttons<%= id %>" class="<%= type === 'pelcod' ? 'pelcodbuttons' : type === 'esp32cam' ? 'pelcodbuttons' : (type === 'web' ? 'buttons pelcodbuttons' : 'buttons') %>">
+        <%- buttonsHtml %>
+    </div>
+    <div id="title2" class="smallround">
+        <%= id + 1 %> : <%= name %> </br>IP: <%= ip %><% if (type === 'pelcod' ) { %> &nbsp; ID: <%= camID %><% } %><% if (type === 'esp3cam' ) { %> &nbsp; ID: <%= camID %><% } %>
+    </div>
+        <div id="sidebuttons<%= id %>" class="pelcosbuttons">
+            <%- sidebuttonsHtml %>
+        </div>
+</div>

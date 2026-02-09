@@ -1,0 +1,43 @@
+<! DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/styles.css" media="screen, projection, print" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script src="/includes/jquery.lightbox_me.js"></script>
+<script src="/includes/login.js"></script>
+<script src="/includes/func.js"></script>
+<title>SmartCams</title>
+</head>
+<body>
+<meta http-equiv="Cache-control" content="no-cache">
+<div id="tabs">
+  <ul id="tablist">
+  </ul>
+</div>
+<div id="scripts"></div>
+<div id="login" class="round" style="top:250px;">	
+	<div id="ttitle"> <h1 id="toptitle" class="sprited">SmartCams v1.0</h1></div>
+	<div id="ttshadow" class="shadow"> <h1 id="toptitleshadow" class="sprited">SmartCams v1.0</h1></div>
+	<div id="see_id"><h3 class="sprited"> Can I see some ID? </h3></div>
+	<div id="log_in_form">
+		<label><strong>Username :</strong> <input class="sprited" name="name" style="width:310px;"/></label></br>
+		<label><strong>Password :</strong> <input type="password" class="sprited" name="pass" style="width:310px;"/></label>
+		<div id="actions">
+			</br> <a id="log_in" class="buttn" href="#cams" >Sign in</a>
+		</div>
+		<!--div id="footer"> POWERED BY: Bitwise Operations 2014 </div-->
+	</div>
+	<div id="clogo"><img src="/images/Security-Camera-icon.png" id="camlogo"/></div>
+</div>
+<div id="time" >
+	<span id="date_time" class="headertxt"></span>
+	<script type="text/javascript">window.onload = date_time('date_time');</script>
+</div>
+<iframe name="ok" border="0" width="0" height="0" style="display:none;"></iframe>
+</body>
+</html>

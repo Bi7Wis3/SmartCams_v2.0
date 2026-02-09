@@ -1,0 +1,27 @@
+<% /* Side button template for web/web2/mpegstream cameras */ %>
+<%
+var webCommands = {
+    "stop": 0,
+    "moveup": 1, "movedown": 2, "moveleft": 4, "moveright": 6,
+    "zoomin": 8, "zoomout": 10,
+    "focusfar": 12, "focusnear": 14, "focusauto": 16, "focusman": 18,
+    "iron": 21, "iroff": 20,
+    "backlighton": 41, "backlightoff": 40,
+    "zeroon": 51, "zerooff": 50,
+    "washwipe": 99,
+    "setpreset1": 30, "setpreset2": 32, "setpreset3": 34, "setpreset4": 36, "setpreset5": 30, "setpreset6": 30,
+    "getpreset1": 31, "getpreset2": 33, "getpreset3": 35, "getpreset4": 37, "getpreset5": 31, "getpreset6": 31,
+    "vsweep": 26, "hsweep": 28
+};
+%>
+<% buttons.group2.forEach(function(button) { %>
+    <% if (button === 'blank') { %>
+        <div id="button" class="blank"><img src="<%= imgDir %><%= buttonpics.blank %>"></div>
+    <% } else if (button === 'refresh') { %>
+        <div class="refresh"><img onclick="reloadImage(<%= id %>, '<%= url %>');" src="<%= imgDir %><%= buttonpics.refresh %>" title="refresh camera"></div>
+    <% } else if (button === 'fullscreen') { %>
+        <div id="sbutton" class="fscreen<%= id %>" onclick="fsCam(<%= id %>);"><img src="<%= imgDir %><%= buttonpics.fullscreen %>" title="fullscreen"></div>
+    <% } else { %>
+        <a id="sbutton" href="http://<%= ip %><%= url %><%= url2 || '' %><%= url3 || '' %><%= url4 || '' %><%= webCommands[button] || 1 %>" target="ok"><img src="<%= imgDir %><%= buttonpics[button] %>" title="<%= button %>"></a>
+    <% } %>
+<% }); %>

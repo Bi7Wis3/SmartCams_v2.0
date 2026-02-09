@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Config files with potential sensitive data
+config/
+serverconfig.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+.directory
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+
+# Build files
+dist/
+build/
+bin/
+
+# Temporary files
+*.tmp
+*.temp
+structure.txt
+Session.np++.txt
+
+# Images (if large)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+
+# Batch files
+*.bat

@@ -1,0 +1,12 @@
+<% /* Side button template for pelcod/pelcod-web cameras */ %>
+<% buttons.group2.forEach(function(button) { %>
+    <% if (button === 'blank') { %>
+        <div id="button" class="blank"><img src="<%= imgDir %><%= buttonpics.blank %>"></div>
+    <% } else { %>
+        <div id="button" class="<%= button %><%= id %>"><img src="<%= imgDir %><%= buttonpics[button] %>" title="<%= button %>"></div>
+    <% } %>
+<% }); %>
+<% /* Preset set buttons */ %>
+<% for (var i = 1; i <= presets; i++) { %>
+    <div id="button" class="setpreset"><img onclick="sendControlData({'cam':<%= id %>,'command':'setpreset<%= i %>'})" src="<%= imgDir %><%= buttonpics['getpreset' + i] %>" title="Set Preset <%= i %>"></div>
+<% } %>
