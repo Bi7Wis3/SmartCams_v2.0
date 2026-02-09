@@ -90,9 +90,17 @@ cd SmartCams_v2.0
 npm install
 ```
 
-3. Configure the server:
-   - Set up your camera configurations in the `config/` directory
-   - Update `serverconfig.json` with your settings
+3. Set up configuration files:
+   ```bash
+   # Copy example configs to config directory
+   cp config.example/_serverconfig.json config/_serverconfig.json
+   cp config.example/_cameraconfig.json config/_cameraconfig.json
+
+   # Edit with your settings
+   nano config/_serverconfig.json
+   nano config/_cameraconfig.json
+   ```
+   See `config.example/README.md` for detailed configuration instructions
 
 4. Start the server:
 ```bash

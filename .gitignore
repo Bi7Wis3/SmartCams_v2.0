@@ -6,6 +6,9 @@ package-lock.json
 config/
 serverconfig.json
 
+# But allow example configs
+!config.example/
+
 # Logs
 *.log
 npm-debug.log*

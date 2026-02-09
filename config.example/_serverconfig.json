@@ -1,0 +1,24 @@
+{
+  "config": {
+    "server": {
+      "config": {
+        "httpport": "8001",
+        "publicdir": "public",
+        "picturedir": "images"
+      }
+    }
+  },
+  "users": {
+    "admins": [
+      {"id": 1, "name": "admin", "password": "changeme", "role": "admin"}
+    ],
+    "users": [
+      {"id": 100, "name": "user", "password": "changeme", "role": "user"}
+    ],
+    "guests": [
+      {"id": 1000, "name": "guest", "role": "guest"}
+    ],
+    "guestpassword": "guest",
+    "login": "true"
+  }
+}
