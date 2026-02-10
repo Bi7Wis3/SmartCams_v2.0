@@ -51,5 +51,8 @@ Session.np++.txt
 *.gif
 *.ico
 
+# But allow repository branding
+!Title.png
+
 # Batch files
 *.bat

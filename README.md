@@ -1,3 +1,9 @@
+<div align="center">
+
+![SmartCams v2.0](Title.png)
+
+</div>
+
 # SmartCams v2.0
 
 A professional-grade real-time smart camera monitoring and control system with support for PTZ (Pan-Tilt-Zoom) cameras using the Pelco-D protocol and IP cameras with web interfaces.
