@@ -2,19 +2,65 @@
 
 This directory contains **example configuration files** for SmartCams v2.0.
 
+## ⚠️ IMPORTANT: User-to-Camera File Mapping
+
+**Each user in `_serverconfig.json` MUST have a matching `[username].cams.json` file!**
+
+### How It Works:
+
+```
+_serverconfig.json                    Camera Config Files
+├─ admin (user)          ────────────→ admin.cams.json
+├─ user (user)           ────────────→ user.cams.json
+├─ guest (user)          ────────────→ guest.cams.json
+└─ kiki (user)           ────────────→ kiki.cams.json
+```
+
+**Example:**
+- If you create a user named `"john"` in `_serverconfig.json`
+- You MUST create `john.cams.json` with his camera assignments
+- When John logs in, the server loads `john.cams.json`
+
 ## Setup Instructions
 
-1. **Copy the example files to the `config/` directory:**
+1. **Copy server configuration:**
    ```bash
    cp config.example/_serverconfig.json config/_serverconfig.json
-   cp config.example/_cameraconfig.json config/_cameraconfig.json
    ```
 
-2. **Edit the configuration files** with your actual settings:
-   - Update IP addresses to match your network
-   - Change default passwords
-   - Configure camera URLs and credentials
-   - Add/remove cameras as needed
+2. **Copy camera configurations for each user:**
+   ```bash
+   # Copy default/fallback config (used when no user-specific config exists)
+   cp config.example/_cameraconfig.json config/_cameraconfig.json
+
+   # Copy per-user camera configs
+   cp config.example/admin.cams.json config/admin.cams.json
+   cp config.example/user.cams.json config/user.cams.json
+   ```
+
+3. **Edit `config/_serverconfig.json`:**
+   - Add/remove users as needed
+   - Change passwords (IMPORTANT!)
+   - Note the username for each user
+
+4. **For EACH user, create/edit their camera file:**
+   - File name MUST match username: `[username].cams.json`
+   - Assign cameras specific to that user
+   - Configure their grid layout (columns/rows)
+   - Set their allowed controls
+
+## Example Files Included
+
+```
+config.example/
+├── _serverconfig.json      → Server settings + user accounts
+├── _cameraconfig.json      → Default/fallback camera config
+├── admin.cams.json         → Camera config for user "admin"
+├── user.cams.json          → Camera config for user "user"
+└── README.md               → This file
+```
+
+**Notice:** The usernames `"admin"` and `"user"` in `_serverconfig.json` have matching files `admin.cams.json` and `user.cams.json`. This is NOT a coincidence - it's required!
 
 ## Configuration Files
 
@@ -50,14 +96,43 @@ Default camera configuration (used when no user-specific config exists).
 - `url` - Video stream URL path
 - `user`/`pass` - Camera authentication credentials
 
-### Per-User Camera Files
+### Per-User Camera Files (REQUIRED!)
 
-Create user-specific camera configurations:
-- Format: `[username].cams.json`
-- Example: `kiki.cams.json`, `joe.cams.json`
-- Structure: Same as `_cameraconfig.json`
+**Every user needs their own camera config file!**
 
-Each user can have different cameras and layouts assigned.
+**File Naming Convention:**
+```
+Username in _serverconfig.json  →  Camera config filename
+─────────────────────────────────────────────────────────
+"admin"                         →  admin.cams.json
+"user"                          →  user.cams.json
+"kiki"                          →  kiki.cams.json
+"joe"                           →  joe.cams.json
+```
+
+**Structure:** Same as `_cameraconfig.json`
+
+**Example Workflow:**
+
+1. Add user to `_serverconfig.json`:
+   ```json
+   "users": [
+     {"id": 100, "name": "bob", "password": "bobpass", "role": "user"}
+   ]
+   ```
+
+2. Create `bob.cams.json`:
+   ```bash
+   cp config.example/user.cams.json config/bob.cams.json
+   nano config/bob.cams.json
+   ```
+
+3. Assign Bob's cameras in `bob.cams.json`
+
+**What Happens:**
+- When Bob logs in, server automatically loads `config/bob.cams.json`
+- Bob sees only HIS cameras in HIS layout
+- Different users can see different cameras with different permissions
 
 ## Pelco-D Camera Setup
 

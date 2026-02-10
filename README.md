@@ -92,14 +92,22 @@ npm install
 
 3. Set up configuration files:
    ```bash
-   # Copy example configs to config directory
+   # Copy server config (defines users)
    cp config.example/_serverconfig.json config/_serverconfig.json
-   cp config.example/_cameraconfig.json config/_cameraconfig.json
 
-   # Edit with your settings
-   nano config/_serverconfig.json
-   nano config/_cameraconfig.json
+   # Copy camera configs - IMPORTANT: Each user needs their own file!
+   cp config.example/_cameraconfig.json config/_cameraconfig.json  # Fallback config
+   cp config.example/admin.cams.json config/admin.cams.json        # For user "admin"
+   cp config.example/user.cams.json config/user.cams.json          # For user "user"
+
+   # Edit configurations
+   nano config/_serverconfig.json    # Add users, change passwords
+   nano config/admin.cams.json       # Assign cameras to admin
+   nano config/user.cams.json        # Assign cameras to user
    ```
+
+   **Important:** Each username in `_serverconfig.json` must have a matching `[username].cams.json` file!
+
    See `config.example/README.md` for detailed configuration instructions
 
 4. Start the server:

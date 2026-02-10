@@ -1,0 +1,125 @@
+{
+  "cameras": [
+    {
+      "id": "1",
+      "type": "pelcod",
+      "name": "Front Door PTZ",
+      "ip": "192.168.1.100",
+      "cip": "192.168.1.50",
+      "url": "/axis-cgi/mjpg/video.cgi",
+      "url2": "192.168.1.100",
+      "url3": "192.168.1.100",
+      "url4": "192.168.1.100",
+      "cport": "4001",
+      "user": "admin",
+      "pass": "camera_password",
+      "control": {
+        "enabled": "true",
+        "buttons": {
+          "group1": [
+            "moveleft", "moveright", "moveup", "movedown",
+            "blank", "zoomin", "zoomout", "blank",
+            "iron", "iroff", "blank",
+            "toggle", "fullscreen", "blank", "refresh"
+          ],
+          "group2": ["backlighton", "backlightoff"]
+        },
+        "presets": "6"
+      }
+    },
+    {
+      "id": "2",
+      "type": "pelcod-web",
+      "name": "Backyard PTZ",
+      "ip": "192.168.1.101",
+      "cip": "192.168.1.50",
+      "url": "/axis-cgi/mjpg/video.cgi",
+      "url2": "/axis-cgi/mjpg/video.cgi",
+      "url3": "/decoder_control.cgi?command=",
+      "url4": "/set_misc.cgi?led_mode=",
+      "cport": "4001",
+      "user": "admin",
+      "pass": "camera_password",
+      "control": {
+        "enabled": "true",
+        "buttons": {
+          "group1": [
+            "moveup", "movedown", "moveleft", "moveright",
+            "blank", "zoomin", "zoomout", "blank",
+            "toggle", "fullscreen", "blank", "refresh"
+          ],
+          "group2": ["backlighton", "backlightoff"]
+        },
+        "presets": "4"
+      }
+    },
+    {
+      "id": "3",
+      "type": "web",
+      "name": "Garage Camera",
+      "ip": "192.168.1.102",
+      "cip": "",
+      "url": "/video/mjpg.cgi",
+      "url2": "/video/mjpg.cgi",
+      "url3": "",
+      "url4": "",
+      "cport": "80",
+      "user": "admin",
+      "pass": "password",
+      "control": {
+        "enabled": "false",
+        "buttons": {
+          "group1": ["toggle", "fullscreen", "refresh"]
+        },
+        "presets": "0"
+      }
+    },
+    {
+      "id": "4",
+      "type": "esp32cam",
+      "name": "Workshop ESP32",
+      "ip": "192.168.1.103",
+      "cip": "",
+      "url": ":81/stream",
+      "url2": "",
+      "url3": "",
+      "url4": "",
+      "cport": "",
+      "user": "",
+      "pass": "",
+      "control": {
+        "enabled": "false",
+        "buttons": {
+          "group1": ["toggle", "fullscreen", "refresh"]
+        },
+        "presets": "0"
+      }
+    }
+  ],
+  "config": {
+    "screen": {
+      "columns": "3",
+      "rows": "2",
+      "picdirectory": "/images/",
+      "buttonpics": {
+        "moveleft": "arrows/left.png",
+        "moveright": "arrows/right.png",
+        "moveup": "arrows/up.png",
+        "movedown": "arrows/down.png",
+        "zoomin": "arrows/zoomin.png",
+        "zoomout": "arrows/zoomout.png",
+        "iron": "arrows/licht.png",
+        "iroff": "arrows/lichtaan.png",
+        "backlighton": "on.png",
+        "backlightoff": "off.png",
+        "fullscreen": "magnifier_zoom_in.png",
+        "refresh": "arrow_refresh.png",
+        "toggle": "switch.png"
+      }
+    },
+    "stopCommandButtonList": [
+      "moveleft", "moveright", "moveup", "movedown",
+      "zoomin", "zoomout", "focusnear", "focusfar"
+    ]
+  }
+}
