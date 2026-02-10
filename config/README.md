@@ -186,15 +186,32 @@ The `config.screen` section controls the camera grid:
 
 ## Security Considerations
 
-⚠️ **Never commit your actual `config/` directory to version control!**
+⚠️ **Never commit your actual configuration `.json` files to version control!**
 
-The `config/` directory is excluded in `.gitignore` to protect:
-- User passwords
-- Camera IP addresses
-- Network topology
-- Authentication credentials
+### What's Safe to Commit (Already in the repo):
+✅ `config/` directory itself
+✅ `*.example.json` template files
+✅ `README.md` documentation
 
-Always keep your actual configuration files private and secure.
+### What's Protected by .gitignore (NEVER committed):
+❌ `_serverconfig.json` - Contains user passwords
+❌ `_cameraconfig.json` - Contains camera IPs and credentials
+❌ `*.cams.json` - Contains your actual camera assignments and network topology
+
+### How It Works:
+
+The `.gitignore` file contains:
+```
+config/*.json          # Ignore all .json files
+!config/*.example.json # But ALLOW .example.json files
+```
+
+This means:
+- Template files (`.example.json`) are safe and public
+- Your actual config files (`.json`) stay private and secure
+- You can freely edit your configs without risk of accidentally committing secrets
+
+**Always keep your actual configuration files (without `.example` in the name) private and secure!**
 
 ## Troubleshooting
 
