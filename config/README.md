@@ -13,7 +13,7 @@ _serverconfig.json                    Camera Config Files
 ├─ admin (user)          ────────────→ admin.cams.json
 ├─ user (user)           ────────────→ user.cams.json
 ├─ guest (user)          ────────────→ guest.cams.json
-└─ kiki (user)           ────────────→ kiki.cams.json
+└─ sarah (user)          ────────────→ sarah.cams.json
 ```
 
 **Example:**
@@ -116,7 +116,7 @@ Username in _serverconfig.json  →  Camera config filename
 ─────────────────────────────────────────────────────────
 "admin"                         →  admin.cams.json
 "user"                          →  user.cams.json
-"kiki"                          →  kiki.cams.json
+"sarah"                         →  sarah.cams.json
 "joe"                           →  joe.cams.json
 ```
 
