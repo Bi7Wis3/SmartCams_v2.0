@@ -3,11 +3,13 @@ node_modules/
 package-lock.json
 
 # Config files with potential sensitive data
-config/
+config/*.json
+config/*.cams.json
 serverconfig.json
 
-# But allow example configs
-!config.example/
+# But allow example config files
+!config/*.example.json
+!config/README.md
 
 # Logs
 *.log

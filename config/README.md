@@ -25,20 +25,24 @@ _serverconfig.json                    Camera Config Files
 
 1. **Copy server configuration:**
    ```bash
-   cp config.example/_serverconfig.json config/_serverconfig.json
+   cd config/
+   cp _serverconfig.example.json _serverconfig.json
    ```
 
 2. **Copy camera configurations for each user:**
    ```bash
    # Copy default/fallback config (used when no user-specific config exists)
-   cp config.example/_cameraconfig.json config/_cameraconfig.json
+   cp _cameraconfig.example.json _cameraconfig.json
 
    # Copy per-user camera configs
-   cp config.example/admin.cams.json config/admin.cams.json
-   cp config.example/user.cams.json config/user.cams.json
+   cp admin.cams.example.json admin.cams.json
+   cp user.cams.example.json user.cams.json
    ```
 
-3. **Edit `config/_serverconfig.json`:**
+3. **Edit `_serverconfig.json`:**
+   ```bash
+   nano _serverconfig.json
+   ```
    - Add/remove users as needed
    - Change passwords (IMPORTANT!)
    - Note the username for each user
@@ -52,15 +56,21 @@ _serverconfig.json                    Camera Config Files
 ## Example Files Included
 
 ```
-config.example/
-├── _serverconfig.json      → Server settings + user accounts
-├── _cameraconfig.json      → Default/fallback camera config
-├── admin.cams.json         → Camera config for user "admin"
-├── user.cams.json          → Camera config for user "user"
-└── README.md               → This file
+config/
+├── _serverconfig.example.json      → Server settings + user accounts (TEMPLATE)
+├── _cameraconfig.example.json      → Default/fallback camera config (TEMPLATE)
+├── admin.cams.example.json         → Camera config for user "admin" (TEMPLATE)
+├── user.cams.example.json          → Camera config for user "user" (TEMPLATE)
+└── README.md                       → This file
+
+After setup:
+├── _serverconfig.json              → Your actual server config (git ignored)
+├── _cameraconfig.json              → Your actual default config (git ignored)
+├── admin.cams.json                 → Your actual admin cameras (git ignored)
+└── user.cams.json                  → Your actual user cameras (git ignored)
 ```
 
-**Notice:** The usernames `"admin"` and `"user"` in `_serverconfig.json` have matching files `admin.cams.json` and `user.cams.json`. This is NOT a coincidence - it's required!
+**Notice:** The usernames `"admin"` and `"user"` in `_serverconfig.example.json` have matching template files `admin.cams.example.json` and `user.cams.example.json`. This is NOT a coincidence - it's required!
 
 ## Configuration Files
 
@@ -123,8 +133,9 @@ Username in _serverconfig.json  →  Camera config filename
 
 2. Create `bob.cams.json`:
    ```bash
-   cp config.example/user.cams.json config/bob.cams.json
-   nano config/bob.cams.json
+   cd config/
+   cp user.cams.example.json bob.cams.json
+   nano bob.cams.json
    ```
 
 3. Assign Bob's cameras in `bob.cams.json`

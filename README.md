@@ -92,23 +92,25 @@ npm install
 
 3. Set up configuration files:
    ```bash
+   cd config/
+
    # Copy server config (defines users)
-   cp config.example/_serverconfig.json config/_serverconfig.json
+   cp _serverconfig.example.json _serverconfig.json
 
    # Copy camera configs - IMPORTANT: Each user needs their own file!
-   cp config.example/_cameraconfig.json config/_cameraconfig.json  # Fallback config
-   cp config.example/admin.cams.json config/admin.cams.json        # For user "admin"
-   cp config.example/user.cams.json config/user.cams.json          # For user "user"
+   cp _cameraconfig.example.json _cameraconfig.json        # Fallback config
+   cp admin.cams.example.json admin.cams.json              # For user "admin"
+   cp user.cams.example.json user.cams.json                # For user "user"
 
    # Edit configurations
-   nano config/_serverconfig.json    # Add users, change passwords
-   nano config/admin.cams.json       # Assign cameras to admin
-   nano config/user.cams.json        # Assign cameras to user
+   nano _serverconfig.json        # Add users, change passwords
+   nano admin.cams.json           # Assign cameras to admin
+   nano user.cams.json            # Assign cameras to user
    ```
 
    **Important:** Each username in `_serverconfig.json` must have a matching `[username].cams.json` file!
 
-   See `config.example/README.md` for detailed configuration instructions
+   See `config/README.md` for detailed configuration instructions
 
 4. Start the server:
 ```bash
@@ -132,9 +134,11 @@ npm start
 
 ### Configuration Files
 
-- `config/_serverconfig.json` - Server settings, users, and authentication
-- `config/_cameraconfig.json` - Default camera configuration
-- `config/[username].cams.json` - Per-user camera assignments
+The `config/` directory contains template files (`.example.json`) that you copy and customize:
+
+- `_serverconfig.json` - Server settings, users, and authentication
+- `_cameraconfig.json` - Default camera configuration
+- `[username].cams.json` - Per-user camera assignments (one file per user!)
 
 ### Pelco-D Camera Setup
 
